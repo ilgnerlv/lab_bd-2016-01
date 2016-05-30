@@ -1,10 +1,11 @@
+--Database: "Prograd"
 DROP TABLE Evento;
 DROP TABLE C_Adm;
 DROP TABLE C_EaD;
 DROP TABLE C_Pres;
 DROP TABLE Calendario;
 
-CREATE DATABASE "Digra"
+CREATE DATABASE "Prograd"
 	WITH OWNER = postgres
 		ENCODING = 'UTF8'	
    		TABLESPACE = pg_default
