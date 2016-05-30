@@ -1,3 +1,4 @@
+DROP TABLE Evento;
 DROP TABLE C_Adm;
 DROP TABLE C_EaD;
 DROP TABLE C_Pres;
@@ -11,34 +12,58 @@ CREATE DATABASE "Digra"
    		LC_CTYPE = 'Portuguese_Brazil.1252'
    		CONNECTION LIMIT = -1;
 
+-- superclasse de calendários
 CREATE TABLE Calendario {
 	data_inicio 	DATE NOT NULL,
 	data_fim 		DATE,
 	dias_letivos 	INTEGER NOT NULL,
-	aprovado 		BOOLEAN NOT NULL DEFAULT FALSE,
+	aprovado 		BOOLEAN DEFAULT FALSE,
 	reuniao_pauta 	CHAR[100],
 	reuniao_data	DATE,
 	reuniao_numero	INTEGER,
 	data_anterior	DATE,
+
 	CONSTRAINT Calendario_pk PRIMARY KEY (data_inicio)
 };
 
+-- subclasse de calendários presenciais
 CREATE TABLE C_Pres {
-	data_inicio		DATE,
-	CONSTRAINT Pres_Calendario_fk FOREIGN KEY (data_inicio) REFERENCES Calendario(data_inicio),
+	data_inicio		DATE NOT NULL,
+
+	CONSTRAINT Pres_Calendario_fk FOREIGN KEY (data_inicio) REFERENCES Calendario(data_inicio)
+		ON DELETE RESTRICT ON UPDATE CASCADE,
 	CONSTRAINT Pres_pk PRIMARY KEY (data_inicio)
 };
 
+-- subclasse de calendários EaD
 CREATE TABLE C_EaD {
-	data_inicio		DATE,
-	CONSTRAINT EaD_Calendario_fk FOREIGN KEY (data_inicio) REFERENCES Calendario(data_inicio),
+	data_inicio		DATE NOT NULL,
+
+	CONSTRAINT EaD_Calendario_fk FOREIGN KEY (data_inicio) REFERENCES Calendario(data_inicio)
+		ON DELETE RESTRICT ON UPDATE CASCADE,
 	CONSTRAINT EaD_pk PRIMARY KEY (data_inicio)
 };
 
+-- subclasse de calendários administrativos
 CREATE TABLE C_Adm {
-	data_inicio		DATE,
-	CONSTRAINT Adm_Calendario_fk FOREIGN KEY (data_inicio) REFERENCES Calendario(data_inicio),
+	data_inicio		DATE NOT NULL,
+
+	CONSTRAINT Adm_Calendario_fk FOREIGN KEY (data_inicio) REFERENCES Calendario(data_inicio)
+		ON DELETE RESTRICT ON UPDATE CASCADE,
 	CONSTRAINT Adm_pk PRIMARY KEY (data_inicio)
+};
+
+-- eventos -> dependem de calendário
+CREATE TABLE Evento {
+	id_evento		SERIAL NOT NULL UNIQUE,
+	data_inicio		DATE NOT NULL,
+	data_fim		DATE,
+	descricao		VARCHAR(90),
+	data_calendario	DATE NOT NULL,
+
+	CONSTRAINT Evento_Calendario_fk FOREIGN KEY (data_calendario) REFERENCES Calendario(data_inicio)
+		ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT Evento_pk PRIMARY KEY (data_calendario, id_evento)
 };
 
 -- define o auto-relacionamento entre Calendário "anterior" e Calendário "posterior"
