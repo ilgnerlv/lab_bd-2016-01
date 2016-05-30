@@ -12,8 +12,8 @@ CREATE DATABASE "Prograd"
 
 
  CREATE TABLE Atividade(
- 	Data_Inicio date CONSTRAINT atividade_PK primary key,
- 	Data_Fim date CONSTRAINT,
+ 	Data_Inicio date CONSTRAINT atividade_PK PRIMARY KEY,
+ 	Data_Fim date,
  	Atributo char(1) -- atributo descriminatório sobre tipo de atividade
  );
 
