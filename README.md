@@ -2,8 +2,8 @@
 
 ## Nomenclaturas
 ###### Arquivo Único:
-    [nome].sql
+<t>[nome].sql
 
 ###### Arquivos Separados:
-    **Script de criação**: [nome]_CREATE.sql <br>
-    **Script de inserção**: [nome]_INSERT.sql
+<t>**Script de criação**: [nome]_CREATE.sql <br>
+<t>**Script de inserção**: [nome]_INSERT.sql
