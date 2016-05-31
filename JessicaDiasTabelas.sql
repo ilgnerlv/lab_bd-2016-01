@@ -20,7 +20,11 @@ CREATE TABLE public.departamento
   dep_nome character varying(100),
   dep_website character varying(50),
   dep_sigla character varying(50) NOT NULL,
-  CONSTRAINT departamento_pk PRIMARY KEY (dep_sigla)
+  campus_sigla character varying(50),
+  CONSTRAINT departamento_pk PRIMARY KEY (dep_sigla),
+  CONSTRAINT depcampus_fk FOREIGN KEY (campus_sigla)
+	REFERENCES public.campus (campus_sigla) MATCH SIMPLE
+	ON UPDATE NO ACTION ON DELETE NO ACTION
 )
 
 -- Atividade complementar
