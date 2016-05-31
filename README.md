@@ -36,17 +36,17 @@
 **Lucas Callegari** (lucas.sql)<br>
 &nbsp;&nbsp;&nbsp;&nbsp; DisciplinaPreReq<br>
 	
-**Thalles Ferreira** (thalles.sql)
+**Thalles Ferreira** (thalles.sql)<br>
 &nbsp;&nbsp;&nbsp;&nbsp; Atividade<br>
 &nbsp;&nbsp;&nbsp;&nbsp; Compoe<br>
 &nbsp;&nbsp;&nbsp;&nbsp; Efetua<br>
 &nbsp;&nbsp;&nbsp;&nbsp; Matriculado<br>
 	
-**Tiago Avellar** (tiago.sql)
+**Tiago Avellar** (tiago.sql)<br>
 &nbsp;&nbsp;&nbsp;&nbsp; Realiza_CC_Re<br>
 &nbsp;&nbsp;&nbsp;&nbsp; Cursa<br>
 
-**Tomas Borba** (tomas_CREATE.sql)
+**Tomas Borba** (tomas_CREATE.sql)<br>
 &nbsp;&nbsp;&nbsp;&nbsp; PossuiCCND<br>
 &nbsp;&nbsp;&nbsp;&nbsp; PossuiRCF<br>
 &nbsp;&nbsp;&nbsp;&nbsp; Inscreve<br>
