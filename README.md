@@ -1,9 +1,9 @@
 # Grupos 1B 3B 5B
 
 ## Nomenclaturas
-###### Para arquivo único:
-[nome].sql
+###### Arquivo Único:
+<t>[nome].sql
 
-###### Para arquivos separados:
-**Script de criação**: [nome]_CREATE.sql 
-**Script de inserção**: [nome]_INSERT.sql
+###### Arquivos Separados:
+<t>**Script de criação**: [nome]_CREATE.sql <br>
+<t>**Script de inserção**: [nome]_INSERT.sql
