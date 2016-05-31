@@ -26,5 +26,5 @@ Estagia(
 	cartaAvaliacao,
 	termoCompromisso,
 	pk(cpf),
-	fk_Estudante(cpf)
+	fk_Estudante(CPF)
 );
