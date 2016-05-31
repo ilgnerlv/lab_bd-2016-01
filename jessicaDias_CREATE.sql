@@ -3,6 +3,9 @@ CREATE TABLE Campus
   nome character varying(50),
   website character varying(100),
   sigla character varying(10) NOT NULL,
+  telefone1 character varying(20) NOT NULL,
+  telefone2 character varying(20),
+  endereco character varying(100) NOT NULL,
 
   CONSTRAINT Campus_pk PRIMARY KEY (sigla)
 );
@@ -13,6 +16,8 @@ CREATE TABLE Centro
   website character varying(100),
   geo character varying(50),
   sigla character varying(10) NOT NULL,
+  telefone1 character varying(20) NOT NULL,
+  telefone2 character varying(20),
 
   CONSTRAINT Centro_pk PRIMARY KEY (sigla)
 );
@@ -22,6 +27,9 @@ CREATE TABLE Departamento
   nome character varying(50),
   website character varying(100),
   sigla character varying(10) NOT NULL,
+  telefone1 character varying(20) NOT NULL,
+  telefone2 character varying(20),
+  endereco character varying (100) NOT NULL,
   Campus_sigla character varying(10),
 
   CONSTRAINT Departamento_pk PRIMARY KEY (sigla),
