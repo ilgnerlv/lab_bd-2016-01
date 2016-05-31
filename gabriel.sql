@@ -5,7 +5,7 @@ DROP TABLE Sala;
 CREATE TABLE PertenceDD(
 	sigla_departamento character varying(100),
 	codigo_disciplina character varying(10),
-	CONSTRAINT pertencedd_sigla_departamento foreign key (sigla_departamento) references Departamento(dep_sigla),
+	CONSTRAINT pertencedd_sigla_departamento foreign key (sigla_departamento) references Departamento(sigla),
 	CONSTRAINT pertencedd_codigo_disciplina foreign key (codigo_disciplina) references Disciplina(Codigo),
 	CONSTRAINT pertencedd_pk PRIMARY KEY (sigla_departamento,codigo_disciplina_disciplina)
  );
