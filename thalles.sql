@@ -1,6 +1,7 @@
 --Database: "Prograd"
 DROP TABLE Atividade
 DROP TABLE Compoe
+DROP TABLE Efetua
 
 CREATE DATABASE "Prograd"
   WITH OWNER = postgres
@@ -33,4 +34,22 @@ CREATE TABLE Efetua(
 	FOREIGN KEY (Codigo_NDocente) REFERENCES Nucleo_Docente (Codigo_NDocente),
 	FOREIGN KEY (Codigo_Reuniao) REFERENCES Reuniao (Codigo_Reuniao),
 	CONSTRAINT efetua_PK PRIMARY KEY (Codigo_NDocente, Codigo_Reuniao)
+);
+
+INSERT INTO Atividade VALUES(
+	2016-01-01,
+	2016-01-03,
+	1
+);
+
+INSERT INTO Atividade VALUES(
+	2016-05-25,
+	2016-01-26,
+	2
+);
+
+INSERT INTO Atividade VALUES(
+	2016-10-10,
+	2016-01-12,
+	1
 );
