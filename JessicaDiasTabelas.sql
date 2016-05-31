@@ -38,7 +38,7 @@ CREATE TABLE public.atcomp
 -- Relacionamento Realiza (Atividade_Complementar x Estudante)
 CREATE TABLE public.realizaace
 (
-  RA_estudante character varying(100),
+  RA_estudante integer,
   at_nome character varying(100),
   
 
