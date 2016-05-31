@@ -8,7 +8,7 @@
 	**Script de criação**: [nome]_CREATE.sql <br>
 	**Script de inserção**: [nome]_INSERT.sql
 
-###### Contribuições:
+## Contribuições:
 **Gabriel Martins** (gabriel.sql) <br>
 &nbsp;&nbsp;&nbsp;&nbsp; PertenceDD<br>
 &nbsp;&nbsp;&nbsp;&nbsp; Turma<br>
