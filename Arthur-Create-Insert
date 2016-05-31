@@ -29,8 +29,8 @@ CREATE TYPE end AS (
 
 
 CREATE TYPE supervisor AS (
-    cpf BIGINT,
-    nome char(30)
+    CPF BIGINT,
+    Nome char(30)
 );
 
 
