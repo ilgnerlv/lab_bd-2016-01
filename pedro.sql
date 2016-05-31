@@ -1,7 +1,11 @@
 ﻿--Database: "Prograd"
+DROP PROCEDURE calcula_data_fim_proc();
+
 DROP TABLE Evento;
+DROP TABLE C_Adm;
+DROP TABLE C_EaD;
+DROP TABLE C_Pres;
 DROP TABLE Calendario;
-DROP TABLE Reuniao;
 
 --CREATE DATABASE "Prograd"
 --	WITH OWNER = postgres
@@ -14,7 +18,7 @@ DROP TABLE Reuniao;
 -- reunião
 CREATE TABLE Reuniao (
 	numero INTEGER NOT NULL UNIQUE,
-	pauta TEXT,
+	pauta VARCHAR[100],
 	data_inicio DATE,
 
 	CONSTRAINT Reuniao_pk PRIMARY KEY (numero)
