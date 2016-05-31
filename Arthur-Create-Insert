@@ -34,26 +34,26 @@ CREATE TYPE supervisor AS (
 );
 
 
-CREATE TABLE curso(
+CREATE TABLE Curso(
     codigo INTEGER constraint curso_pk primary key,
     website char(40),
     nome char(40),
     coordenador coord 
 );
 
-CREATE TABLE turma(
+CREATE TABLE Turma(
     id INTEGER constraint turma_pk primary key,
     salas integer ARRAY,     
     vagas INTEGER
 );
 
-CREATE TABLE empresa(
+CREATE TABLE Empresa(
     cnpj BIGINT constraint empresa_pk primary key,
     nome INTEGER,
     endereco end
 );
 
-CREATE TABLE estagia
+CREATE TABLE Estagia
     dtInicio DATE,
     dtTermino DATE,
     cpf BIGINT,
