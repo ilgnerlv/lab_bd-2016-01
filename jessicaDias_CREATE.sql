@@ -1,93 +1,49 @@
-CREATE TABLE public.campus
+CREATE TABLE Campus
 (
-  campus_nome character varying(100),
-  campus_website character varying(50),
-  campus_sigla character varying(50) NOT NULL,
-  CONSTRAINT campus_pk PRIMARY KEY (campus_sigla)
+  nome character varying(50),
+  website character varying(100),
+  sigla character varying(10) NOT NULL,
+
+  CONSTRAINT Campus_pk PRIMARY KEY (sigla)
 );
 
-CREATE TABLE public.centro
+CREATE TABLE Centro
 (
-  centro_nome character varying(100),
-  centro_website character varying(50),
-  centro_geo character varying(50),
-  centro_sigla character varying(50) NOT NULL,
-  CONSTRAINT centro_pk PRIMARY KEY (centro_sigla)
+  nome character varying(50),
+  website character varying(100),
+  geo character varying(50),
+  sigla character varying(10) NOT NULL,
+
+  CONSTRAINT Centro_pk PRIMARY KEY (sigla)
 );
 
-CREATE TABLE public.departamento
+CREATE TABLE Departamento
 (
-  dep_nome character varying(100),
-  dep_website character varying(50),
-  dep_sigla character varying(50) NOT NULL,
-  campus_sigla character varying(50),
-  CONSTRAINT departamento_pk PRIMARY KEY (dep_sigla),
-  CONSTRAINT depcampus_fk FOREIGN KEY (campus_sigla)
-	REFERENCES public.campus (campus_sigla) MATCH SIMPLE
-	ON UPDATE NO ACTION ON DELETE NO ACTION
+  nome character varying(50),
+  website character varying(100),
+  sigla character varying(10) NOT NULL,
+  Campus_sigla character varying(10),
+
+  CONSTRAINT Departamento_pk PRIMARY KEY (sigla),
+  CONSTRAINT Campus_fk FOREIGN KEY (Campus_sigla) REFERENCES Campus (sigla)
 );
 
 -- Atividade complementar
-CREATE TABLE public.atcomp
+CREATE TABLE AtComp
 (
-  at_creditos integer,
-  at_nome character varying(100) NOT NULL,
-  CONSTRAINT atcomp_pk PRIMARY KEY (at_nome)
+  creditos integer,
+  nome character varying(100) NOT NULL,
+
+  CONSTRAINT AtComp_pk PRIMARY KEY (nome)
 );
 
 -- Relacionamento Realiza (Atividade_Complementar x Estudante)
-CREATE TABLE public.realizaace
+CREATE TABLE RealizaACE
 (
   RA_estudante integer,
-  at_nome character varying(100),
+  nome_At character varying(100),
  
-  CONSTRAINT realizaace_pk PRIMARY KEY (RA_estudante, at_nome),
-  CONSTRAINT raestudante_fk FOREIGN KEY (RA_estudante)
-      REFERENCES public.estudante (RA_estudante) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT atnome_fk FOREIGN KEY (at_nome)
-      REFERENCES public.atcomp (at_nome) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-);
-
--- Atributo multivalorado Endereco
-CREATE TABLE public.endereco
-(
-  end_tipo character varying(10),
-  end_rua character varying(50),
-  end_num integer,
-  end_complemento character varying(50),
-  end_bairro character varying(50),
-  end_cidade character varying(50),
-  end_uf character varying(2),
-  end_pais character varying(50),
-  end_cep character varying(50),
-  dep_sigla character varying(50) NOT NULL,
-  campus_sigla character varying(50) NOT NULL,
-  CONSTRAINT endereco_pk PRIMARY KEY (campus_sigla, dep_sigla),
-  CONSTRAINT endcampus_fk FOREIGN KEY (campus_sigla)
-      REFERENCES public.campus (campus_sigla) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT enddep_fk FOREIGN KEY (dep_sigla)
-      REFERENCES public.departamento (dep_sigla) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-);
-
--- Atributo multivalorado Telefone
-CREATE TABLE public.telefone
-(
-  tel_num integer,
-  tel_tipo character varying(10),
-  tel_ramal integer,
-  tel_origem character varying(10),  --Cidade de origem, cidade atual...
-  tel_ddd integer,
-  dep_sigla character varying(50) NOT NULL,
-  campus_sigla character varying(50) NOT NULL,
-  CONSTRAINT telefone_pk PRIMARY KEY (campus_sigla, dep_sigla),
-  CONSTRAINT telcampus_fk FOREIGN KEY (campus_sigla)
-      REFERENCES public.campus (campus_sigla) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT teldep_fk FOREIGN KEY (dep_sigla)
-      REFERENCES public.departamento (dep_sigla) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
+  CONSTRAINT realizaace_pk PRIMARY KEY (RA_estudante, nome_At),
+  CONSTRAINT realizaace_estudante_fk FOREIGN KEY (RA_estudante) REFERENCES estudante (RA),
+  CONSTRAINT realizaace_atcomp_fk FOREIGN KEY (nome_At) REFERENCES AtComp (nome)
 );
