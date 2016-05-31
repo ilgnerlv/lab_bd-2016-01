@@ -16,7 +16,7 @@ CREATE DATABASE "Prograd"
  CREATE TABLE Atividade(
  	Data_Inicio date CONSTRAINT atividade_PK PRIMARY KEY,
  	Data_Fim date,
- 	Atributo char(1) -- atributo descriminatório sobre tipo de atividade
+ 	Atributo CHAR(1) -- atributo descriminatório sobre tipo de atividade
  );
 
 CREATE TABLE Compoe(
@@ -54,17 +54,86 @@ CREATE TABLE Matriculado(
 INSERT INTO Atividade VALUES(
 	2016-01-01,
 	2016-01-03,
-	1
+	'1'
 );
 
 INSERT INTO Atividade VALUES(
 	2016-05-25,
 	2016-01-26,
-	2
+	'2'
 );
 
 INSERT INTO Atividade VALUES(
 	2016-10-10,
 	2016-01-12,
-	1
+	'1'
+);
+
+INSERT INTO Compoe VALUES(
+	-- Codigo_Disciplina,
+	-- Codigo_Curso,
+	true,
+	'3'
+);
+
+INSERT INTO Compoe VALUES(
+	-- Codigo_Disciplina,
+	-- Codigo_Curso,
+	false,
+	'8'
+);
+
+INSERT INTO Compoe VALUES(
+	-- Codigo_Disciplina,
+	-- Codigo_Curso,
+	false,
+	'2'
+);
+
+INSERT INTO Efetua VALUES(
+	-- Codigo_NDocente,
+	-- Codigo_Reuniao,
+);
+
+INSERT INTO Efetua VALUES(
+	-- Codigo_NDocente,
+	-- Codigo_Reuniao,
+);
+
+INSERT INTO Efetua VALUES(
+	-- Codigo_NDocente,
+	-- Codigo_Reuniao,
+);
+
+INSERT INTO Matriculado VALUES(
+	-- RA,
+	-- Codigo_Curso,
+	'grade1',
+	'5',
+	true,
+	'4',
+	2016-01-01,
+	2021-01-01
+);
+
+INSERT INTO Matriculado VALUES(
+	-- RA,
+	-- Codigo_Curso,
+	'grade2',
+	'4',
+	false,
+	'5',
+	2013-01-01,
+	2017-01-01
+);
+
+INSERT INTO Matriculado VALUES(
+	-- RA,
+	-- Codigo_Curso,
+	'grade3',
+	'6',
+	true,
+	'6',
+	2012-01-01,
+	2016-01-01
 );
