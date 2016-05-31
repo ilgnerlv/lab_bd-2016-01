@@ -28,5 +28,9 @@ CREATE TABLE Compoe(
 );
 
 CREATE TABLE Efetua(
-	-- Quais sao as PK?
+	Codigo_NDocente CHAR(10),
+	Codigo_Reuniao CHAR(10),
+	FOREIGN KEY (Codigo_NDocente) REFERENCES Nucleo_Docente (Codigo_NDocente),
+	FOREIGN KEY (Codigo_Reuniao) REFERENCES Reuniao (Codigo_Reuniao),
+	CONSTRAINT efetua_PK PRIMARY KEY (Codigo_NDocente, Codigo_Reuniao)
 );
