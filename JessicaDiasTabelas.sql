@@ -38,10 +38,9 @@ CREATE TABLE public.atcomp
 -- Relacionamento Realiza (Atividade_Complementar x Estudante)
 CREATE TABLE public.realizaace
 (
-  ra integer,
-  nome character varying(100),
+  RA_estudante character varying(100),
   at_nome character varying(100),
-  --Inserir var do estudante
+  
 
   CONSTRAINT realizaace_pk PRIMARY KEY (RA_estudante, at_nome),
   CONSTRAINT raestudante_fk FOREIGN KEY (RA_estudante)
