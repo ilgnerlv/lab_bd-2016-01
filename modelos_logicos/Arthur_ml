@@ -1,0 +1,30 @@
+Curso (
+	website,
+	nome,
+	coordenador,
+	pk(codigo)
+);
+
+Turma (
+	salas,
+	vagas,
+	pk(id)
+);
+
+Empresa (
+	nome,
+	endereco,
+	pk(cpnj)
+);
+
+Estagia(
+	dtInicio,
+	dtTermino,
+	cpf,
+	supEmpresa,
+	supUniversidade,
+	cartaAvaliacao,
+	termoCompromisso,
+	pk(cpf),
+	fk_Estudante(cpf)
+);
