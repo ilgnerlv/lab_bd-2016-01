@@ -1,9 +1,3 @@
-drop table estagia;
-drop table possui;
-drop table empresa;
-drop table turma;
-drop table curso;
-
 CREATE TYPE tel AS (
     Origem char(20),
     Tipo char(20),
